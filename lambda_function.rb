@@ -13,6 +13,6 @@ def lambda_handler(event:, context:)
   weather_body = weather.get_weather
   weather_text = weather.get_text(weather_body)
 
-  #LINE
+  # LINE
   OfficialLine.send(weather_text)
 end
