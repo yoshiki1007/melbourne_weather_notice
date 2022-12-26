@@ -1,0 +1,33 @@
+name: deploy lambda on main branch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Ruby 2.7の環境を作る
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.x
+
+      - name: 依存gemをダウンロード
+        run: |
+          gem install bundler
+          bundle config set deployment 'true'
+          bundle install
+
+      - name: zip圧縮
+        run: |
+          zip deploy_package lambda_function.rb weather.rb official_line.rb  -r vendor
+
+      - name: AWSにアップロード
+        env:
+          access_key_id: ${{ secrets.ACCESS_KEY }}
+          secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+        run: |
+          gem install aws-sdk-lambda
+          bin/deploy
