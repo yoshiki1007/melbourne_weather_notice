@@ -6,4 +6,4 @@ client = Aws::Lambda::Client.new region: "ap-northeast-1",
                                  secret_access_key: ENV["SECRET_ACCESS_KEY"]
 
 zip_file = File.open "deploy_package.zip", "r"
-client.update_function_code function_name: "tange", zip_file: zip_file
+client.update_function_code function_name: "MelbourneWeatherNotice", zip_file: zip_file
