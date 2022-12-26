@@ -2,7 +2,7 @@ require 'uri'
 require 'net/https'
 
 class OfficialLine
-  def self.send(weather_text)
+  def self.line_send(weather_text)
     line_uri = URI.parse('https://api.line.me/v2/bot/message/broadcast')
     line_http = Net::HTTP.new(line_uri.host, line_uri.port)
 

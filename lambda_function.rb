@@ -14,5 +14,5 @@ def lambda_handler(event:, context:)
   weather_text = weather.get_text(weather_body)
 
   # LINE
-  OfficialLine.send(weather_text)
+  OfficialLine.line_send(weather_text)
 end
