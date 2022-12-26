@@ -15,10 +15,10 @@ class Weather
 
   def get_weather
     api_key = ENV['WEATHER_API_KEY']
-    weather_uri = URI("https://api.openweathermap.org/data/3.0/onecall?lat=#{lat}&lon=#{lon}&units=#{units}&lang=#{lang}&exclude=#{exclude}&appid=#{api_key}")
+    uri = URI("https://api.openweathermap.org/data/3.0/onecall?lat=#{lat}&lon=#{lon}&units=#{units}&lang=#{lang}&exclude=#{exclude}&appid=#{api_key}")
 
-    weather_res = Net::HTTP.get_response(weather_uri)
-    JSON.parse(weather_res.body)
+    res = Net::HTTP.get_response(uri)
+    JSON.parse(res.body)
   end
 
   def get_text(weather_body)
