@@ -1,3 +1,4 @@
+require 'aws-sdk'
 require './weather'
 require './official_line'
 
