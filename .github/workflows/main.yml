@@ -9,22 +9,22 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Ruby 2.7の環境を作る
+      - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: 2.5.x
 
-      - name: 依存gemをダウンロード
+      - name: Set up Gem
         run: |
           gem install bundler
           bundle config set deployment 'true'
           bundle install
 
-      - name: zip圧縮
+      - name: Set ZIP
         run: |
           zip deploy_package lambda_function.rb weather.rb official_line.rb  -r vendor
 
-      - name: AWSにアップロード
+      - name: Set AWS
         env:
           access_key_id: ${{ secrets.ACCESS_KEY }}
           secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
