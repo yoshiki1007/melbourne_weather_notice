@@ -13,11 +13,11 @@ jobs:
         with:
           ruby-version: '2.7'
 
-      - name: Set up Gem
-        run: |
-          gem install bundler
-          bundle config set deployment 'true'
-          bundle install
+#      - name: Set up Gem
+#        run: |
+#          gem install bundler
+#          bundle config set deployment 'true'
+#          bundle install
 
       - name: Set ZIP
         run: |

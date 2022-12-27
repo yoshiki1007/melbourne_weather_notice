@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-gem 'aws-sdk-lambda', '~> 1.88'
+gem 'aws-sdk-lambda'
