@@ -1,6 +1,5 @@
-require 'aws-sdk'
-require './weather'
-require './official_line'
+require_relative 'weather'
+require_relative 'official_line'
 
 def lambda_handler(event:, context:)
   # 天気
