@@ -1,6 +1,8 @@
 FROM amazon/aws-lambda-ruby:latest
 
 COPY lambda_function.rb ${LAMBDA_TASK_ROOT}
+COPY official_line.rb ${LAMBDA_TASK_ROOT}
+COPY weather.rb ${LAMBDA_TASK_ROOT}
 
 COPY Gemfile ${LAMBDA_TASK_ROOT}
 
