@@ -1,5 +1,9 @@
 # melbourne_weather_notice
 
+## 以下へ統合
+
+https://github.com/yoshiki1007/aws_sam_melbourne_notice
+
 ## 概要
 
 毎朝8時（日本時間10時）に今日のメルボルン天気が送信されるLINE。
